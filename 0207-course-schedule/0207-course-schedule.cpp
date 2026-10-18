@@ -33,6 +33,7 @@ public:
         // now let's go through all 
         for (int i = 0; i < numCourses; ++i) {
             path[i] = 1; // we shouldn't go back to this
+            if (safe[i]) continue; // we have already explored this
             if (!dfs(adj, safe, path, i)) {
                 return false;
             }
