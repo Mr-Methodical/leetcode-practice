@@ -1,43 +1,28 @@
 class Solution {
 public:
-    bool dfs(vector<vector<int>> &adj, vector<int> &safe, vector<int> &path, int idx) {
-        for (int i = 0; i < adj[idx].size(); ++i) {
-            int prereq = adj[idx][i];
-            if (safe[prereq]) continue; // we already know this is satisfied
-            if (path[prereq]) {
-                // we created a loop that is bad
-                return false;
+    bool dfs(const vector<vector<int>>& adj, vector<int> &state, int idx) {
+        if (state[idx] == 1) return false; // on path, creates cycle
+        if (state[idx] == 2) return true; // we already know it is safe
+        state[idx] = 1; // we have visited stage
+
+        for (int prereq : adj[idx]) {
+            // confirm that this prereq is safe
+            if (!dfs(adj, state, prereq)) {
+                return false; 
             }
-            // now add it to our path because we are going to be going down
-            path[prereq] = 1;
-            // let's go down and see if this one has it's prereqs satisfied
-            if (!dfs(adj, safe, path, prereq)) {
-                return false; // if it passes though then it would set the safe to 1
-            }
-            // reset it:
-            path[prereq] = 0;
         }
-        // note that we know that this idx will always be safe now basically
-        safe[idx] = 1;
-        return true; // all of them worked
+
+        state[idx] = 2; // confirmed all prereqs good
+        return true;
     }
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> adj(numCourses); // map course to prereqs
-        for (int i = 0; i < prerequisites.size(); ++i) {
-            int course = prerequisites[i][0];
-            int prereq = prerequisites[i][1];
-            adj[course].push_back(prereq);
+    bool canFinish(int numCourses, vector<vector<int>>& prereqs) {
+        vector<vector<int>> adj(numCourses);
+        for (const auto &p : prereqs) {
+            adj[p[0]].push_back(p[1]);
         }
-        vector<int> safe(numCourses, 0);
-        vector<int> path(numCourses, 0);
-        // now let's go through all 
+        vector<int> state(numCourses, 0); // 0 = not visited, 1 = visited, 2 = prereqs satisfied
         for (int i = 0; i < numCourses; ++i) {
-            path[i] = 1; // we shouldn't go back to this
-            if (safe[i]) continue; // we have already explored this
-            if (!dfs(adj, safe, path, i)) {
-                return false;
-            }
-            path[i] = 0; // reset the path array
+            if (!dfs(adj, state, i)) return false;
         }
         return true;
     }
