@@ -1,23 +1,17 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        if (!s.size()) return 0;
-        int l = 0;
-        int r = 0;
-        int curr_max = 0;
-        int abs_max = 0;
-        vector<int> idxLastSeen(256, -1); // for number of characters there are
-        // keep going with r till tit gets past the end
-        while (r != s.size()) {
-            int pos = s[r];
-            int idxLast = idxLastSeen[pos];
-            int nxt = idxLast + 1; // because we would want l to move to the next one
-            idxLastSeen[pos] = r; // we have now seen occurence here
-            l = max(l, nxt);
-            curr_max = r - l + 1;
-            abs_max = max(abs_max, curr_max);
-            ++r;
+        array<int, 256> lastSeen; // stack allocated not dynamimcally allocated = slightly faster
+        lastSeen.fill(-1);
+        int left = 0;
+        int bestLength = 0;
+        for (int right = 0; right < static_cast<int>(s.size()); ++right) {
+            unsigned char c = s[right];
+            // we don't want to go backwards so we will take the max
+            left = max(left, lastSeen[c] + 1);
+            lastSeen[c] = right;
+            bestLength = max(bestLength, right - left + 1);
         }
-        return abs_max;
+        return bestLength;
     }
 };
