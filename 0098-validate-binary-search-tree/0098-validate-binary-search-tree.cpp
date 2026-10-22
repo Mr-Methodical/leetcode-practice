@@ -11,16 +11,16 @@
  */
 class Solution {
 public:
-    bool fallInRange(long long lower_bound, long long upper_bound, TreeNode *root) {
+    bool isValidSubtree(long long &lowest, TreeNode *root) {
         if (!root) return true;
-        if (lower_bound < static_cast<long long>(root->val) && 
-            static_cast<long long>(root->val) < upper_bound) {
-            return fallInRange(lower_bound, root->val, root->left) &&
-                   fallInRange(root->val, upper_bound, root->right);
-        }
-        return false;
+        if (!isValidSubtree(lowest, root->left)) return false;
+        if (root->val <= lowest) return false;
+        lowest = root->val;
+        if (!isValidSubtree(lowest, root->right)) return false;
+        return true;
     }
     bool isValidBST(TreeNode* root) {
-        return fallInRange(LLONG_MIN, LLONG_MAX, root);
+        long long lowest = LLONG_MIN;
+        return isValidSubtree(lowest, root);
     }
 };
