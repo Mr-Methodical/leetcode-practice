@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
         vector<int> numToFreq(20001, 0);
         for (int num : nums) {
             ++numToFreq[num + 10000];
