@@ -5,18 +5,22 @@ public:
         for (int num : nums) {
             ++numToFreq[num + 10000];
         }
-        // first val should be the frequency
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> top;
+        // now we go through them and we have to pick the top k frequencies basically
+        // well actually we can create an array
+        // where it is freq to vector of nums
+        vector<vector<int>> freqToNums(nums.size() + 1);
         for (int i = 0; i < numToFreq.size(); ++i) {
-            if (!numToFreq[i]) continue;
-            top.push({numToFreq[i], i - 10000}); // the highest frequency goes to bottom
-            if (top.size() > k) top.pop();
+            if (numToFreq[i] == 0) continue;
+            freqToNums[numToFreq[i]].push_back(i - 10000);
         }
+        // we will go back and push those all on they guarantee uniqueness
         vector<int> result;
         result.reserve(k);
-        while (!top.empty()) {
-            result.push_back(top.top().second);
-            top.pop();
+        for (int i = static_cast<int>(freqToNums.size()) - 1; i > 0 && k > 0; --i) {
+            k -= freqToNums[i].size();
+            for (int num : freqToNums[i]) {
+                result.push_back(num);
+            }
         }
         return result;
     }
