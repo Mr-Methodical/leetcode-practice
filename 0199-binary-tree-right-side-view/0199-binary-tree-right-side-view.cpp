@@ -11,23 +11,20 @@
  */
 class Solution {
 public:
-    vector<int> rightSideView(TreeNode* root) {
-        // go fully down one level
-        vector<int> result;
-        queue<TreeNode *> q;
-        if (root) q.push(root);
-        while (!q.empty()) {
-            result.push_back(q.front()->val);
-            int level_size = q.size();
-            // we are going to pop them all off, in this level we only want the far right one
-            for (int i = 0; i < level_size; ++i) {
-                // add their next nodes to the queue adding the farthest right first
-                TreeNode *curr = q.front();
-                if (curr->right) q.push(curr->right);
-                if (curr->left) q.push(curr->left);
-                q.pop(); // take off this front one
-            }
+    void dfs(TreeNode *root, vector<int> &result, size_t level) {
+        if (!root) return;
+        // this would be the first one that we found on the right
+        if (level == result.size()) {
+            result.push_back(root->val);
         }
+        // else the level is less than 
+        if (root->right) dfs(root->right, result, level + 1);
+        if (root->left) dfs(root->left, result, level + 1);
+        return;
+    }
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> result;
+        dfs(root, result, 0);
         return result;
     }
 };
