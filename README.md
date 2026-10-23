@@ -6,6 +6,7 @@
 |  |
 | ------- |
 | [0039-combination-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0039-combination-sum) |
+| [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
 | [0056-merge-intervals](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0056-merge-intervals) |
 | [0198-house-robber](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0198-house-robber) |
 | [0347-top-k-frequent-elements](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0347-top-k-frequent-elements) |
@@ -82,9 +83,14 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
 | [0198-house-robber](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0198-house-robber) |
 ## Backtracking
 |  |
 | ------- |
 | [0039-combination-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0039-combination-sum) |
+## Greedy
+|  |
+| ------- |
+| [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
 <!---LeetCode Topics End-->
