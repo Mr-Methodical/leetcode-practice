@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        vector<int> dp(nums.size(), 0); // the best we have got so far
+        dp[0] = nums[0];
+        if (nums.size() >= 2) {
+            dp[1] = max(nums[1], dp[0]);
+        }
+        for (int i = 2; i < nums.size(); ++i) {
+            // we can either take what we had last or we can add onto the one before
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+        return dp[nums.size() - 1];
+    }
+};
