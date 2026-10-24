@@ -9,11 +9,13 @@
 | [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
 | [0056-merge-intervals](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0056-merge-intervals) |
 | [0198-house-robber](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0198-house-robber) |
+| [0209-minimum-size-subarray-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0209-minimum-size-subarray-sum) |
 | [0347-top-k-frequent-elements](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0347-top-k-frequent-elements) |
 | [0875-koko-eating-bananas](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0875-koko-eating-bananas) |
 ## Binary Search
 |  |
 | ------- |
+| [0209-minimum-size-subarray-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0209-minimum-size-subarray-sum) |
 | [0875-koko-eating-bananas](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0875-koko-eating-bananas) |
 ## Hash Table
 |  |
@@ -28,6 +30,7 @@
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0209-minimum-size-subarray-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0209-minimum-size-subarray-sum) |
 ## Sorting
 |  |
 | ------- |
@@ -93,4 +96,8 @@
 |  |
 | ------- |
 | [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
+## Prefix Sum
+|  |
+| ------- |
+| [0209-minimum-size-subarray-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0209-minimum-size-subarray-sum) |
 <!---LeetCode Topics End-->
