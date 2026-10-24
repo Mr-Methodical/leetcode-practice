@@ -1,17 +1,30 @@
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        int left = 0;
+        vector<int> prefix_sum(nums.size() + 1, 0);
+        int idx = 1;
+        for (int num : nums) {
+            prefix_sum[idx] = prefix_sum[idx - 1] + num;
+            ++idx;
+        }
         int min_len = INT_MAX;
-        int curr_sum = 0;
-        for (int right = 0; right < nums.size(); ++right) {
-            curr_sum += nums[right];
-            while (curr_sum >= target) {
-                min_len = min(min_len, right - left + 1);
-                curr_sum -= nums[left++];
+        // idea: we will go through all right values and use binary search to find
+        //       the best left value
+        for (int right = 1; right <= nums.size(); ++right) {
+            // so left is giog to be between 0 and right
+            int lo = 0; // indexing is slightly weird because we are using prefix sums
+            int hi = right - 1;
+
+            while (lo <= hi) {
+                int mid = lo + (hi - lo) / 2;
+                int curr_sum = prefix_sum[right] - prefix_sum[mid];
+                if (curr_sum >= target) {
+                    lo = mid + 1;
+                    min_len = min(min_len, right - mid);
+                } else {
+                    hi = mid - 1;
+                }
             }
-            // on every rotation we want to be at the one slightly below so then we are adding
-            // to try to see if it can go over with that, 
         }
         return min_len == INT_MAX ? 0 : min_len;
     }
