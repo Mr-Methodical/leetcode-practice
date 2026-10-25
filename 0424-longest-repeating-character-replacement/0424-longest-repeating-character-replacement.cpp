@@ -18,7 +18,8 @@ public:
             maxFreq = max(maxFreq, cnt[idx]); // it only really matters what the front is because those
             // are the only ones that can actually get us something new, like even if windows aren't correct
             // with smaller values it is fine, they aren't going to get us worse. 
-            while (right - left + 1 - maxFreq > k) { // replacements must be equal to k
+            // this can only ev
+            if (right - left + 1 - maxFreq > k) { // replacements must be equal to k
                 --cnt[s[left] - 'A'];
                 ++left;
             }
