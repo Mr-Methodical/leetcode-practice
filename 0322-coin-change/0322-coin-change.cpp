@@ -1,18 +1,24 @@
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int amount) {
-        // we will have an array that how much it took to get to that amount
-        const int INF = amount + 1;
-        vector<int> dp(amount + 1, INF); // max the amount could be is 10^4
-        dp[0] = 0; // 0 coins to get to 0 amount
-        for (int i = 1; i <= amount; ++i) {
-            for (int coin : coins) {
-                if (i - coin >= 0) {
-                    // this is one way that we could get here
-                    dp[i] = min(dp[i], dp[i - coin] + 1);
-                }
-            }
+    int INF;
+    // dfs represents how much count to get to that amount with our coins
+    int dfs(vector<int> &coins, int amount, vector<int> &memo) {
+        if (amount == 0) return 0;
+        if (amount < 0) return INF; // not possible
+        if (memo[amount] != -1) return memo[amount];
+        int lowest_coins = INF;
+        for (int coin : coins) {
+            lowest_coins = min(1 + dfs(coins, amount - coin, memo), lowest_coins);
         }
-        return dp[amount] == INF ? -1 : dp[amount];
+        // this is the best possible we can get with this amount
+        return memo[amount] = lowest_coins;
+    }
+    int coinChange(vector<int>& coins, int amount) {
+        INF = amount + 1;
+        // -1 represents we haven't visited it yet
+        vector<int> memo(amount + 1, -1); // how many coins to get to this amount
+        memo[0] = 0;
+        int cnt = dfs(coins, amount, memo);
+        return cnt == INF ? -1 : cnt;
     }
 };
