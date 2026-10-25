@@ -10,9 +10,15 @@ public:
             // adding a character can never decrease the number of required replacements
             int idx = s[right] - 'A';
             ++cnt[idx];
-            // what is the most frequent element in our array
-            int freq = *max_element(cnt.begin(), cnt.end());
-            while (right - left + 1 - freq > k) { // replacements must be equal to k
+            // stale is actually good, we want that. as it will never hurt us because we can't get a bigger
+            // best when maxFreq stays the same. But it is helpful for keeping your size essentially
+            // like in A A B A you would have maxFreq be 2 at 2nd a but then at B it would be 1 and the array would
+            // shrink maybe to just A B if k = 1 we don't want this because on the next one it could just change
+            // B and use 4
+            maxFreq = max(maxFreq, cnt[idx]); // it only really matters what the front is because those
+            // are the only ones that can actually get us something new, like even if windows aren't correct
+            // with smaller values it is fine, they aren't going to get us worse. 
+            while (right - left + 1 - maxFreq > k) { // replacements must be equal to k
                 --cnt[s[left] - 'A'];
                 ++left;
             }
