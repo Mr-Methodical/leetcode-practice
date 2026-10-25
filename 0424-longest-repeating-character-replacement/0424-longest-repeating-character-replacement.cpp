@@ -1,33 +1,23 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        int best_len = 0;
-        int curr_len = 0;
-        for (int i = 0; i < 26; ++i) {
-            // it could be any character
-            char curr = 'A' + i;
-            int currCnt = k;
-            // we will use sliding window on this letter basically
-            int left = 0;
-            for (int right = 0; right < s.size(); ++right) {
-                if (s[right] == curr) {
-                    // good this is what we want
-                } else {
-                    // they are not equal so we are going to have use some of ours
-                    if (currCnt == 0) {
-                        while (s[left] == curr) {
-                            ++left;
-                        }
-                        ++left; // to go past the one 
-                        // we would ++currCnt but our right is already taking away
-                    } else {
-                        --currCnt;
-                    }
-                }
-                curr_len = max(curr_len, right - left + 1);
+        // we should have a maxFreq like the other windows don't have to be valid
+        int maxFreq = 0;
+        int left = 0;
+        int best = 0;
+        vector<int> cnt(26, 0);
+        for (int right = 0; right < s.size(); ++right) {
+            // adding a character can never decrease the number of required replacements
+            int idx = s[right] - 'A';
+            ++cnt[idx];
+            // what is the most frequent element in our array
+            int freq = *max_element(cnt.begin(), cnt.end());
+            while (right - left + 1 - freq > k) { // replacements must be equal to k
+                --cnt[s[left] - 'A'];
+                ++left;
             }
-            best_len = max(best_len, curr_len);
+            best = max(best, right - left + 1);
         }
-        return best_len;
+        return best;
     }
 };
