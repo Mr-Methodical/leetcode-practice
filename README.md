@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0033-search-in-rotated-sorted-array) |
 | [0039-combination-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0039-combination-sum) |
 | [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
 | [0056-merge-intervals](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0056-merge-intervals) |
@@ -17,6 +18,7 @@
 ## Binary Search
 |  |
 | ------- |
+| [0033-search-in-rotated-sorted-array](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0033-search-in-rotated-sorted-array) |
 | [0209-minimum-size-subarray-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0209-minimum-size-subarray-sum) |
 | [0875-koko-eating-bananas](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0875-koko-eating-bananas) |
 ## Hash Table
