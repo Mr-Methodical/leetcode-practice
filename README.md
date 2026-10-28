@@ -10,6 +10,7 @@
 | [0039-combination-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0039-combination-sum) |
 | [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
 | [0056-merge-intervals](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0056-merge-intervals) |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
 | [0198-house-robber](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0198-house-robber) |
 | [0200-number-of-islands](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0200-number-of-islands) |
 | [0209-minimum-size-subarray-sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0209-minimum-size-subarray-sum) |
@@ -29,12 +30,14 @@
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
 | [0347-top-k-frequent-elements](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0347-top-k-frequent-elements) |
 | [0424-longest-repeating-character-replacement](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0424-longest-repeating-character-replacement) |
 ## String
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
 | [0424-longest-repeating-character-replacement](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0424-longest-repeating-character-replacement) |
 ## Sliding Window
 |  |
@@ -103,6 +106,7 @@
 |  |
 | ------- |
 | [0055-jump-game](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0055-jump-game) |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
 | [0198-house-robber](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0198-house-robber) |
 | [0322-coin-change](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0322-coin-change) |
 | [0435-non-overlapping-intervals](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0435-non-overlapping-intervals) |
@@ -148,4 +152,16 @@
 |  |
 | ------- |
 | [0015-3sum](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0015-3sum) |
+## Trie
+|  |
+| ------- |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
+## Memoization
+|  |
+| ------- |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
+## Brute-Force Search
+|  |
+| ------- |
+| [0139-word-break](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0139-word-break) |
 <!---LeetCode Topics End-->
