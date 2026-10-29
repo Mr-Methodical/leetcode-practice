@@ -1,9 +1,20 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        // let's do O(klogn) for practice, this does use more space though
-        priority_queue<int> maxHeap(nums.begin(), nums.end()); // heapify
-        for (int i = 0; i < k - 1; ++i) maxHeap.pop();
-        return maxHeap.top();
+        int left = *min_element(nums.begin(), nums.end());
+        int right = *max_element(nums.begin(), nums.end());
+        // maybe we binary search on which value that we think it is
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2;
+            // now how many are greater
+            int count = count_if(nums.begin(), nums.end(), [mid](int x) { return x >= mid; });
+            if (count >= k) {
+                // we have too many so go above
+                left = mid;
+            } else {
+                right = mid - 1;
+            } 
+        }
+        return left;
     }
 };
