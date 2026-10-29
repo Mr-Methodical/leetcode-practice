@@ -1,20 +1,38 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        int left = *min_element(nums.begin(), nums.end());
-        int right = *max_element(nums.begin(), nums.end());
-        // maybe we binary search on which value that we think it is
-        while (left < right) {
-            int mid = left + (right - left + 1) / 2;
-            // now how many are greater
-            int count = count_if(nums.begin(), nums.end(), [mid](int x) { return x >= mid; });
-            if (count >= k) {
-                // we have too many so go above
-                left = mid;
+        // quickselect
+        int left = 0;
+        int right = nums.size() - 1;
+        int target = nums.size() - k; // we want k - 1 elements above an element
+        random_device rd;
+        mt19937 rng(rd());
+        while (left <= right) {
+            uniform_int_distribution<int> dist(left, right);
+            int pivot = nums[dist(rng)];
+            int i = left;
+            int lt = left;
+            int gt = right;
+            while (i <= gt) {
+                if (nums[i] < pivot) {
+                    swap(nums[lt++], nums[i++]);
+                } else if (nums[i] > pivot) {
+                    swap(nums[gt--], nums[i]); // we don't have enough info about this i yet
+                } else {
+                    // they are equal
+                    ++i;
+                }
+            }
+            // p will end up having all the elements that are less than nums[pivotIdx] before it
+            if (target > gt) {
+                left = gt + 1;
+            } else if (target < lt) {
+                right = lt - 1;
             } else {
-                right = mid - 1;
-            } 
+                // it is in the rnage of our values basically
+                return nums[target];
+            }
         }
-        return left;
+        return -1; // we should not get here
     }
 };
