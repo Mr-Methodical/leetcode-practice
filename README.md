@@ -21,6 +21,7 @@
 | [0435-non-overlapping-intervals](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0435-non-overlapping-intervals) |
 | [0739-daily-temperatures](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0739-daily-temperatures) |
 | [0875-koko-eating-bananas](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0875-koko-eating-bananas) |
+| [0994-rotting-oranges](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0994-rotting-oranges) |
 ## Binary Search
 |  |
 | ------- |
@@ -77,6 +78,7 @@
 | [0199-binary-tree-right-side-view](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0199-binary-tree-right-side-view) |
 | [0200-number-of-islands](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0200-number-of-islands) |
 | [0322-coin-change](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0322-coin-change) |
+| [0994-rotting-oranges](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0994-rotting-oranges) |
 ## Binary Tree
 |  |
 | ------- |
@@ -140,6 +142,7 @@
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0200-number-of-islands) |
+| [0994-rotting-oranges](https://github.com/Mr-Methodical/leetcode-practice/tree/master/0994-rotting-oranges) |
 ## Knapsack Problem
 |  |
 | ------- |
