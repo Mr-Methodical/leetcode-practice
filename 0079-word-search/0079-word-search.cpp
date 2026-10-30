@@ -25,6 +25,28 @@ class Solution {
     }
 public:
     bool exist(vector<vector<char>>& board, string word) {
+        // if they don't have same letters then it won't work
+        if (word.size() > board.size() * board[0].size()) return false;
+        vector<int> freq_board(256);
+        vector<int> freq_word(256);
+        for (char c : word) {
+            ++freq_word[c];
+        }
+        for (int i = 0; i < board.size(); ++i) {
+            for (int j = 0; j < board[0].size(); ++j) {
+                ++freq_board[board[i][j]];
+            }
+        }
+        for (int i = 0; i < 256; ++i) {
+            if (freq_board[i] < freq_word[i]) {
+                // that means the board does not have enough occurences for us
+                return false;
+            }
+        }
+        // also if there are more at the front might as well just reverse the word
+        if (freq_board[word[0]] > freq_board[word[word.size() - 1]]) {
+            reverse(word.begin(), word.end());
+        }
         for (int i = 0; i < board.size(); ++i) {
             for (int j = 0; j < board[0].size(); ++j) {
                 // run dfs on this to see if it is the start of the word
