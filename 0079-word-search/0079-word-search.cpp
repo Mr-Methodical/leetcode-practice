@@ -44,7 +44,7 @@ public:
             }
         }
         // also if there are more at the front might as well just reverse the word
-        if (freq_board[word[0]] > freq_board[word[word.size() - 1]]) {
+        if (freq_board[word.front()] > freq_board[word.back()]) {
             reverse(word.begin(), word.end());
         }
         for (int i = 0; i < board.size(); ++i) {
