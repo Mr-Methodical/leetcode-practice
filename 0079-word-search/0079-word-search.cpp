@@ -8,19 +8,20 @@ class Solution {
         }
         static constexpr int dx[4] = {-1, 1, 0, 0};
         static constexpr int dy[4] = {0, 0, -1, 1};
+        // we are not allowed to use the same one
+        char curr = board[i][j];
+        board[i][j] = '#';
         for (int d = 0; d < 4; ++d) {
             int cx = dx[d] + i;
             int cy = dy[d] + j;
-            // we are not allowed to use the same one
-            char curr = board[i][j];
-            board[i][j] = '#';
             if (cx >= 0 && cy >= 0 && cx < board.size() && cy < board[0].size() && 
                 dfs(cx, cy, board, word, idx + 1)) {
+                board[i][j] = curr;
                 return true;
             }
-            board[i][j] = curr;
         }
         // none worked
+        board[i][j] = curr;
         return false;
     }
 public:
